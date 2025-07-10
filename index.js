@@ -19,7 +19,7 @@ console.log("mongodb connected");
 
 var corsOptions = {
   // origin: 'https://movie-rating-two.vercel.app',
-  origin:'http://localhost:5173'
+  origin:'https://book-library-bice-tau.vercel.app'
 }
 
 app.use(cors(corsOptions));
