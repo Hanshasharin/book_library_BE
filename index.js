@@ -1,0 +1,31 @@
+const express = require('express')
+const mongoose = require('mongoose');
+const bookRouter = require('./src/routes/bookRouter')
+var cors = require('cors')
+const app = express()
+
+
+const port = 3000
+
+
+ mongoose.connect("mongodb+srv://sharinhansha:mgPeHNepPdEHBA4J@main.hjzb9sc.mongodb.net/?retryWrites=true&w=majority&appName=main")
+.then(res=>{
+console.log("mongodb connected");
+
+}).catch(err=>{
+  console.log("error",err);
+})
+
+var corsOptions = {
+  // origin: 'https://movie-rating-two.vercel.app',
+  origin:'http://localhost:5173'
+}
+
+app.use(cors(corsOptions));
+app.use(express.json())
+// app.use("",bookRouter)
+app.use("",bookRouter)
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
