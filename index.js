@@ -18,12 +18,15 @@ console.log("mongodb connected");
 
 var corsOptions = {
   // origin: 'https://movie-rating-two.vercel.app',
-  origin:'http://localhost:5173'
+  origin:'http://localhost:5173/'
 }
 
 app.use(cors(corsOptions));
 app.use(express.json())
 // app.use("",bookRouter)
+app.get('/', (req, res) => {
+  res.send('Backend API is running');
+});
 app.use("",bookRouter)
 
 app.listen(port, () => {
