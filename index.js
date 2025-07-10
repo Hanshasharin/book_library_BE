@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const bookRouter = require('./src/routes/bookRouter')
+const userRouter = require('./src/routes/userRouter')
 var cors = require('cors')
 const app = express()
 
@@ -28,7 +29,7 @@ app.get('/', (req, res) => {
   res.send('Backend API is running');
 });
 app.use("",bookRouter)
-
+app.use("/user", userRouter)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
